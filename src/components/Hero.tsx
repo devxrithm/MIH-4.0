@@ -11,19 +11,8 @@ export function Hero() {
   return (
     <section className="relative h-[50rem] w-full flex items-center justify-center overflow-hidden">
       {/* Background Video Placeholder with fallback color */}
-      <div className="absolute inset-0 z-0 bg-black">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute min-w-full min-h-full object-cover opacity-40"
-          poster="https://picsum.photos/seed/mih-hero/1920/1080"
-          data-ai-hint="cyberpunk tech"
-        >
-          <source src="/video.mp4" type="video/mp4" />
-        </video>
-        {/* Overlay Gradients */}
+      <div className="absolute inset-0 z-0 bg-black bg-[url('/bg3.jpg')] bg-center bg-cover opacity-12">
+        Overlay Gradients
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
       </div>

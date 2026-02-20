@@ -3,28 +3,37 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-// Function to create textures for the particles
-const createSymbolTexture = (symbol: string) => {
+// Creates a neon red dot texture matching Valorant's aesthetic
+const createDotTexture = () => {
   const canvas = document.createElement("canvas");
-  canvas.width = 256;
-  canvas.height = 256;
+  canvas.width = 64;
+  canvas.height = 64;
   const ctx = canvas.getContext("2d");
 
-  if (!ctx) {
-    return new THREE.Texture();
-  }
-  
+  if (!ctx) return new THREE.Texture();
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.font = 'bold 160px "Roboto Mono", monospace';
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
 
-  // Neon red glow, matching the site's primary color
-  ctx.shadowColor = "rgba(220, 38, 38, 0.7)";
-  ctx.shadowBlur = 20;
-  ctx.fillStyle = "#dc2626"; // Tailwind's red-600
-  ctx.fillText(symbol, canvas.width / 2, canvas.height / 2);
+  // Outer glow (soft, wide)
+  const outerGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 32);
+  outerGlow.addColorStop(0, "rgba(255, 40, 40, 0.6)");
+  outerGlow.addColorStop(0.4, "rgba(220, 38, 38, 0.25)");
+  outerGlow.addColorStop(1, "rgba(220, 38, 38, 0)");
+  ctx.fillStyle = outerGlow;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Inner bright core
+  const innerCore = ctx.createRadialGradient(cx, cy, 0, cx, cy, 10);
+  innerCore.addColorStop(0, "rgba(255, 200, 200, 1)");
+  innerCore.addColorStop(0.3, "rgba(255, 60, 60, 1)");
+  innerCore.addColorStop(1, "rgba(220, 38, 38, 0)");
+  ctx.fillStyle = innerCore;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+  ctx.fill();
 
   const texture = new THREE.CanvasTexture(canvas);
   texture.needsUpdate = true;
@@ -56,43 +65,37 @@ export const EmberParticles = () => {
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     currentMount.appendChild(renderer.domElement);
-    
-    const symbols = ["♠", "♦", "♣", "0", "1"];
+
+    const dotTexture = createDotTexture();
     const totalParticleCount = 500;
-    const particlesPerSymbol = Math.floor(totalParticleCount / symbols.length);
-    const particleSystems: { points: THREE.Points; geometry: THREE.BufferGeometry; velocities: Float32Array }[] = [];
 
-    symbols.forEach(symbol => {
-        const positions = new Float32Array(particlesPerSymbol * 3);
-        const velocities = new Float32Array(particlesPerSymbol * 5);
+    const positions = new Float32Array(totalParticleCount * 3);
+    const velocities = new Float32Array(totalParticleCount * 3);
 
-        for (let i = 0; i < particlesPerSymbol; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 20;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+    for (let i = 0; i < totalParticleCount; i++) {
+      positions[i * 3]     = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
 
-            velocities[i * 3] = (Math.random() - 0.5) * 0.0005;
-            velocities[i * 3 + 1] = 0.001 + Math.random() * 0.002;
-            velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.0005;
-        }
+      velocities[i * 3]     = (Math.random() - 0.5) * 0.0005;
+      velocities[i * 3 + 1] = 0.001 + Math.random() * 0.002;
+      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.0005;
+    }
 
-        const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
-        const material = new THREE.PointsMaterial({
-            size: 0.35,
-            transparent: true,
-            opacity: 0.7,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false,
-            map: createSymbolTexture(symbol),
-        });
-
-        const points = new THREE.Points(geometry, material);
-        scene.add(points);
-        particleSystems.push({ points, geometry, velocities });
+    const material = new THREE.PointsMaterial({
+      size: 0.22,
+      transparent: true,
+      opacity: 2,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      map: dotTexture,
     });
 
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
 
     // Resize handler
     const handleResize = () => {
@@ -108,25 +111,23 @@ export const EmberParticles = () => {
     const animate = () => {
       animationFrameRef.current = requestAnimationFrame(animate);
 
-      particleSystems.forEach(system => {
-        const pos = system.geometry.attributes.position.array as Float32Array;
+      const pos = geometry.attributes.position.array as Float32Array;
 
-        for (let i = 0; i < pos.length; i += 3) {
-            pos[i] += system.velocities[i];
-            pos[i + 1] += system.velocities[i + 1];
-            pos[i + 2] += system.velocities[i + 2];
+      for (let i = 0; i < pos.length; i += 3) {
+        pos[i]     += velocities[i];
+        pos[i + 1] += velocities[i + 1];
+        pos[i + 2] += velocities[i + 2];
 
-            if (pos[i + 1] > 10) {
-                pos[i] = (Math.random() - 0.5) * 20;
-                pos[i + 1] = -10;
-                pos[i + 2] = (Math.random() - 0.5) * 20;
-            }
+        if (pos[i + 1] > 10) {
+          pos[i]     = (Math.random() - 0.5) * 20;
+          pos[i + 1] = -10;
+          pos[i + 2] = (Math.random() - 0.5) * 20;
         }
+      }
 
-        system.geometry.attributes.position.needsUpdate = true;
-        system.points.rotation.y += 0.0001;
-      });
-      
+      geometry.attributes.position.needsUpdate = true;
+      points.rotation.y += 0.0001;
+
       renderer.render(scene, camera);
     };
 
@@ -138,14 +139,12 @@ export const EmberParticles = () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
-      particleSystems.forEach(system => {
-          system.geometry.dispose();
-          (system.points.material as THREE.PointsMaterial).map?.dispose();
-          (system.points.material as THREE.PointsMaterial).dispose();
-      });
+      geometry.dispose();
+      dotTexture.dispose();
+      material.dispose();
       renderer.dispose();
       if (currentMount) {
-        currentMount.innerHTML = ''; // Clear the container
+        currentMount.innerHTML = '';
       }
     };
   }, []);

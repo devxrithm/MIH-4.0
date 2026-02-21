@@ -16,7 +16,7 @@ export function Hero() {
           muted
           loop
           playsInline
-          className="absolute min-w-full min-h-full object-cover opacity-45"
+          className="absolute min-w-full min-h-full object-cover opacity-[.40]"
           poster="https://picsum.photos/seed/mih-hero/1920/1080"
           data-ai-hint="cyberpunk tech"
         >

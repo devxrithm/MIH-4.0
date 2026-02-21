@@ -23,12 +23,12 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed -top-10 left-0 right-0 z-50 h-40 transition-all duration-300 px-6 py-0',
+        'fixed -top-5 left-0 right-0 z-50 h-auto transition-all duration-300 px-6 ',
         isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link href="/" className="font-headline text-2xl font-bold text-white tracking-tighter">
+        <Link href="/" className="font-headline text-2xl font-bold text-white">
           <Image
             src={'/iimt-logo.png'}
             alt="Logo"

@@ -8,14 +8,25 @@ import Link from 'next/link';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-12 lg:py-36 sm:py-5">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-12 lg:py-36 lg:pb-30 sm:py-5">
       {/* Background with reduced opacity */}
       <div className="absolute inset-0 z-0 bg-black">
-        <div 
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute min-w-full min-h-full object-cover opacity-45"
+          poster="https://picsum.photos/seed/mih-hero/1920/1080"
+          data-ai-hint="cyberpunk tech"
+        >
+          <source src="/bgvedio.mp4" type="video/mp4" />
+        </video>
+        {/* <div 
           className="absolute inset-0 bg-[url('/bg3.jpg')] bg-center bg-cover bg-no-repeat opacity-12" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" /> */}
       </div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-7xl">

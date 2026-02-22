@@ -17,13 +17,15 @@ import ChiefPatron from '@/components/ChiefPatron';
 import { EmberParticles } from '@/components/EmberParticles';
 import { QrCode } from '@/components/QrCode';
 import CommunityPartner from '@/components/CommunityPartner';
+import { Banner } from '@/components/Banner';
+import { Gallery } from '@/components/Gallery';
 
 
 export default function Home() {
   return (
     <main className="relative bg-black min-h-screen">
        <div className="fixed inset-0 z-0 w-full">
-          <EmberParticles containerId="ember-container" />
+          <EmberParticles />
         </div>
       <Navbar />
       <Hero />
@@ -40,6 +42,8 @@ export default function Home() {
       </div>
       <Partners />
       <QrCode/>
+      <Banner/>
+      <Gallery />
       <FAQ />
       <Contact />
       <Footer />

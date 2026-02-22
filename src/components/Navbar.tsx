@@ -32,7 +32,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-24">
 
           {/* Logo Group */}
-          <Link href="/" className="flex justify-center items-center gap-3">
+          <Link href="/" className="flex justify-center items-center gap-0 lg:gap-3">
             {/* <div className="relative w-[110px] h-[48px]"> */}
               <Image
                 src="/iimt-logo.png"
@@ -43,10 +43,8 @@ export function Navbar() {
               />
             {/* </div> */}
 
-            <div className="flex items-center gap-2 px-3">
-              <span className="w-px h-8 bg-white/20" />
-              <span className="text-white/50 text-xl font-light tracking-widest">×</span>
-              <span className="w-px h-8 bg-white/20" />
+            <div className="flex items-center gap-1 px-1 lg:px-3">
+              <span className="text-white text-4xl font-light tracking-widest">×</span>
             </div>
 
             {/* <div className="relative w-[100px] h-[40px]"> */}

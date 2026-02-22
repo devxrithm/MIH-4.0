@@ -28,15 +28,23 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link href="/" className="font-headline text-2xl font-bold text-white">
+        <div className="flex justify-center items-center gap-2">
+          <Link href="/" className="font-headline text-2xl font-bold text-white">
+            <Image
+              src={'/iimt-logo.png'}
+              alt="Logo"
+              width={150}
+              height={150}
+            />
+          </Link>
+          <span className='ml-5 text-3xl'>X</span>
           <Image
-            src={'/iimt-logo.png'}
+            src={'/mih.png'}
             alt="Logo"
             width={150}
             height={150}
           />
-        </Link>
-
+        </div>
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (

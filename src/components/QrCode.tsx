@@ -16,7 +16,7 @@ export const QrCode = () => {
             height: 300,
             type: "svg",
             data: "https://unstop.com/hackathons/mind-installers-hackathon-40-iimt-college-of-engineering-iimt-coe-greater-noida-1645128",
-            image: "/mih-logo.svg", // Corrected image path to an existing image
+            image: "/mih.jpeg", // Corrected image path to an existing image
             dotsOptions: {
                 color: "#fa4f3c",
                 type: "rounded"

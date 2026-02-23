@@ -81,23 +81,24 @@ export const PARTNERS = [
 ];
 
 export const TEAM_MEMBERS = [
-  { name: 'Harshit', role: 'Chief Orgnizer', image: '/harshit.jpeg' },
-  { name: 'Jagriti', role: 'Technical Lead', image:'/jagriti.jpeg' },
-  { name: 'Anshika Singh', role: 'Event Coordinator', image: '/anshika.jpeg' },
-  { name: 'Shekhar', role: 'Chief Executive Officer', image: '/shekhar.png' },
-  { name: 'Ujjwal Katiyar', role: 'Chief Technical Officer', image: '/ujjwal.jpeg' },
-  { name: 'Harsh Vardhan', role: 'Technical Lead', image:'/harsh.jpeg' },
-  { name: 'Khushi', role: 'Design Lead', image:'/khushi.jpeg' },
-  { name: 'Sara Khan', role: 'Design Lead', image: PlaceHolderImages.find(img => img.id === 'team-member-1')?.imageUrl || '' },
-  { name: 'Sara Khan', role: 'Design Lead', image: PlaceHolderImages.find(img => img.id === 'team-member-1')?.imageUrl || '' },
-  { name: 'Sara Khan', role: 'Design Lead', image: PlaceHolderImages.find(img => img.id === 'team-member-1')?.imageUrl || '' },
+  { name: 'Harshit', role: 'Team lead', image: '/harshit.jpeg' },
+  { name: 'Jagriti', role: 'Team lead', image:'/jagriti.jpeg' },
+  { name: 'Prakshi', role: 'Sponsorship lead', image:'/prakshi.jpeg' },
+  { name: 'Anshika Singh', role: 'Design lead', image: '/anshika.jpeg' },
+  { name: 'Shekhar', role: 'Technical lead', image: '/shekhar.png' },
+  { name: 'Ujjwal Katiyar', role: 'Technical lead', image: '/ujjwal.jpeg' },
+  { name: 'Harsh Vardhan', role: 'Design lead', image:'/harsh.jpeg' },
+  { name: 'Khushi', role: 'Event management lead', image:'/khushi.jpeg' },
+  { name: 'Shashank', role: 'Sponsorship lead', image:'/shashank.jpeg' },
+  { name: 'Vibhashu', role: 'Sponsorship lead', image:'/vibhashu.jpeg' },
+  
 ];
 
 export const FAQ_ITEMS = [
   { question: 'Who can participate?', answer: 'Anyone currently enrolled in an undergraduate or postgraduate program can participate.' },
   { question: 'What is the team size?', answer: 'Teams can have 2 to 4 members.' },
-  { question: 'Is there a registration fee?', answer: 'No, participation in MIH 4.0 is completely free for shortlisted teams.' },
-  { question: 'Will travel be reimbursed?', answer: 'Travel assistance is provided for teams traveling from outside the Delhi-NCR region up to a certain limit.' },
+  { question: 'Is there a registration fee?', answer: 'There is no registration fee for first round. The teams selected in first round have to pay 100/- of each member for final round' },
+  { question: 'Will travel be reimbursed?', answer: 'No, travelling reimbursement' },
   { question: 'What should I bring?', answer: 'Your laptop, chargers, and any hardware you need for your project.' },
 ];
 

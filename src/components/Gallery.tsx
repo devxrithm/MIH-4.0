@@ -1,184 +1,340 @@
 "use client";
 import Image from "next/image";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 
 const images = [
-    "/bg.jpg",
-    "/bg2.jpg",
-    "/bg3.jpg",
-    "/drone.png",
-    "/shekhar.png",
+  "/gallery1.jpeg",
+  "/gallery2.jpeg",
+  "/gallery3.jpeg",
+  "/gallery4.jpeg",
+  "/gallery5.jpeg",
+  "/gallery6.jpeg",
+  "/gallery7.jpeg",
 ];
 
+// const LABELS = [
+//   "Opening Ceremony",
+//   "Workshop Sessions",
+//   "Team Presentations",
+//   "Aerial Operations",
+//   "Keynote Speaker",
+// ];
+
 export const Gallery = () => {
-    const [mainImage, setMainImage] = useState(images[0]);
-    const [lightbox, setLightbox] = useState<string | null>(null);
-    const [fading, setFading] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [fading, setFading] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const progressRef = useRef<NodeJS.Timeout | null>(null);
+  const [progress, setProgress] = useState(0);
 
-    const handleThumbnailClick = useCallback(
-        (image: string) => {
-            if (image === mainImage) return;
-            setFading(true);
-            setTimeout(() => {
-                setMainImage(image);
-                setFading(false);
-            }, 200);
-        },
-        [mainImage]
-    );
+  const goTo = useCallback(
+    (index: number) => {
+      if (index === activeIndex) return;
+      setFading(true);
+      setProgress(0);
+      setTimeout(() => {
+        setActiveIndex(index);
+        setFading(false);
+      }, 250);
+    },
+    [activeIndex]
+  );
 
-    return (
-        <>
-            {/* Section */}
-            <section className="relative bg-[#0a0a0a] p-10 mt-10 rounded-2xl overflow-hidden mx-5">
-                {/* Subtle radial glows */}
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_30%,rgba(184,148,60,0.07)_0%,transparent_70%)]" />
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_70%,rgba(184,148,60,0.04)_0%,transparent_70%)]" />
+  // Auto-advance with progress indicator
+  useEffect(() => {
+    if (lightbox) return;
+    const interval = setInterval(() => {
+      setProgress((p) => {
+        if (p >= 100) {
+          goTo((activeIndex + 1) % images.length);
+          return 0;
+        }
+        return p + 2;
+      });
+    }, 100);
+    return () => clearInterval(interval);
+  }, [activeIndex, lightbox, goTo]);
 
-                <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter uppercase font-headline section-underline">
-                                Past Edition
-                            </h2>
-                        </div>
-                    </div>
-                    {/* Gallery Layout */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-4">
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightbox(images[index]);
+  };
 
-                        {/* Main Image */}
-                        <div className="relative overflow-hidden border border-[#b8943c]/20 bg-[#111] group">
-                            {/* Gold sheen overlay */}
-                            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-[#b8943c]/[0.08] via-transparent to-[#b8943c]/[0.04]" />
+  const lightboxNav = (dir: 1 | -1) => {
+    const next = (lightboxIndex + dir + images.length) % images.length;
+    setLightboxIndex(next);
+    setLightbox(images[next]);
+  };
 
-                            <div
-                                className={`transition-all duration-200 cursor-zoom-in ${fading ? "opacity-0 scale-[1.02]" : "opacity-100 scale-100"
-                                    }`}
-                                onClick={() => setLightbox(mainImage)}
-                            >
-                                <Image
-                                    src={mainImage}
-                                    alt="Featured edition"
-                                    width={900}
-                                    height={560}
-                                    className="w-full aspect-[16/10] object-cover"
-                                    priority
-                                />
-                            </div>
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (!lightbox) return;
+      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "ArrowRight") lightboxNav(1);
+      if (e.key === "ArrowLeft") lightboxNav(-1);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightbox, lightboxIndex]);
 
-                            {/* Badge */}
-                            <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2 bg-black/80 border border-[#b8943c]/40 backdrop-blur-sm px-4 py-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#b8943c] animate-pulse" />
-                                <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#b8943c]">
-                                    Past Edition
-                                </span>
-                            </div>
+  return (
+    <>
+      <section className="relative py-24 px-6 overflow-hidden bg-[#080808]">
+        {/* Ambient background */}
+        <div className="pointer-events-none absolute top-0 left-1/4 w-[600px] h-[400px] bg-red-600/5 rounded-full blur-[120px]" />
+        <div className="pointer-events-none absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-orange-500/4 rounded-full blur-[100px]" />
 
-                            {/* Expand button */}
-                            <button
-                                onClick={() => setLightbox(mainImage)}
-                                className="absolute top-4 right-4 z-20 w-9 h-9 flex items-center justify-center bg-black/70 border border-[#b8943c]/30 text-[#b8943c] backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-[#b8943c]/15 hover:border-[#b8943c]"
-                                aria-label="Expand image"
-                            >
-                                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                                </svg>
-                            </button>
-                        </div>
+        {/* Subtle grid */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
 
-                        {/* Thumbnails */}
-                        <div className="flex lg:flex-col flex-row gap-3 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
-                            {images.map((image, index) => (
-                                <div
-                                    key={image}
-                                    onClick={() => handleThumbnailClick(image)}
-                                    role="button"
-                                    tabIndex={0}
-                                    onKeyDown={(e) => e.key === "Enter" && handleThumbnailClick(image)}
-                                    aria-label={`View edition image ${index + 1}`}
-                                    className={`relative flex-shrink-0 lg:flex-shrink cursor-pointer overflow-hidden border transition-all duration-300 group/thumb
-                    w-20 h-16 lg:w-auto lg:h-[88px]
-                    ${mainImage === image
-                                            ? "border-[#b8943c] lg:-translate-x-0"
-                                            : "border-[#b8943c]/10 hover:border-[#b8943c]/50 lg:hover:-translate-x-1"
-                                        }
-                  `}
-                                >
-                                    {/* Active left bar */}
-                                    <div
-                                        className={`absolute left-0 top-0 bottom-0 w-[3px] bg-[#b8943c] z-10 transition-opacity duration-200 ${mainImage === image ? "opacity-100" : "opacity-0"
-                                            }`}
-                                    />
+        <div className="relative max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase font-headline section-underline">
+              Past <span className="text-primary">Edition</span>
+            </h2>
+            {/* <p className="text-lg text-white/60 uppercase tracking-widest font-medium">
+              Diverse areas to challenge your potential.
+            </p> */}
+          </div>
 
-                                    <Image
-                                        src={image}
-                                        alt={`Edition ${index + 1}`}
-                                        fill
-                                        className={`object-cover transition-all duration-300 ${mainImage === image
-                                            ? "scale-105 brightness-[0.85] saturate-100"
-                                            : "brightness-50 saturate-75 group-hover/thumb:scale-105 group-hover/thumb:brightness-75"
-                                            }`}
-                                        sizes="260px"
-                                    />
+          {/* Gallery */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-3">
+            {/* Main viewer */}
+            <div className="relative overflow-hidden bg-[#111] group">
+              {/* Image */}
+              <div
+                className={`transition-all duration-250 cursor-zoom-in ${fading ? "opacity-0 scale-[1.015]" : "opacity-100 scale-100"
+                  }`}
+                style={{ transitionDuration: "250ms" }}
+                onClick={() => openLightbox(activeIndex)}
+              >
+                <Image
+                  src={images[activeIndex]}
+                  alt={"logo"}
+                  width={960}
+                  height={600}
+                  className="w-full aspect-[16/10] object-cover"
+                  priority
+                />
+              </div>
 
-                                    {/* Number badge */}
-                                    <span
-                                        className={`absolute bottom-2 right-2 z-10 text-[10px] font-semibold tracking-wider transition-colors duration-200 ${mainImage === image ? "text-[#b8943c]" : "text-white/40"
-                                            }`}
-                                    >
-                                        0{index + 1}
-                                    </span>
-                                </div>
-                            ))}
+              {/* Dark gradient at bottom */}
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
 
-                            {/* Counter */}
-                            <div className="hidden lg:block text-right mt-1 text-[10px] tracking-widest font-medium text-white/20">
-                                <span className="text-[#b8943c]">
-                                    {String(images.indexOf(mainImage) + 1).padStart(2, "0")}
-                                </span>{" "}
-                                / {String(images.length).padStart(2, "0")}
-                            </div>
-                        </div>
-                    </div>
+              {/* Caption */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between z-10">
+                <div>
+                  <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase mb-1">
+                    {String(activeIndex + 1).padStart(2, "0")}
+                  </p>
+                  {/* <p className="text-white font-semibold text-sm tracking-wide">
+                    {LABELS[activeIndex]}
+                  </p> */}
                 </div>
-            </section>
-
-            {/* Lightbox */}
-            {lightbox && (
-                <div
-                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-sm cursor-zoom-out"
-                    style={{ animation: "fadeIn 0.2s ease" }}
-                    onClick={() => setLightbox(null)}
+                <button
+                  onClick={() => openLightbox(activeIndex)}
+                  className="flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase font-semibold text-white/50 hover:text-white transition-colors duration-200 opacity-0 group-hover:opacity-100"
                 >
-                    <div
-                        className="relative border border-[#b8943c]/30"
-                        style={{ animation: "scaleIn 0.25s ease" }}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <button
-                            onClick={() => setLightbox(null)}
-                            className="absolute -top-10 right-0 flex items-center gap-2 text-[#b8943c] text-[11px] font-semibold tracking-widest uppercase hover:opacity-70 transition-opacity"
-                        >
-                            <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <path d="M18 6L6 18M6 6l12 12" />
-                            </svg>
-                            Close
-                        </button>
-                        <Image
-                            src={lightbox}
-                            alt="Expanded view"
-                            width={1200}
-                            height={750}
-                            className="block max-w-[90vw] max-h-[85vh] object-contain"
-                        />
-                    </div>
-                </div>
-            )}
+                  <svg
+                    width="12"
+                    height="12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                  Expand
+                </button>
+              </div>
 
-            <style>{`
+              {/* Progress bar */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/10">
+                <div
+                  className="h-full bg-red-500 transition-none"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Thumbnails */}
+            <div className="flex lg:flex-col flex-row gap-2 overflow-x-auto lg:overflow-visible pb-1 lg:pb-0 scrollbar-hide">
+              {images.map((image, index) => {
+                const isActive = activeIndex === index;
+                return (
+                  <button
+                    key={image}
+                    onClick={() => goTo(index)}
+
+                    className={`relative flex-shrink-0 overflow-hidden transition-all duration-300 outline-none
+                      w-20 h-14 lg:w-full lg:h-[88px]
+                      ${isActive ? "ring-1 ring-red-500" : "ring-1 ring-white/5 hover:ring-white/20"}
+                    `}
+                  >
+                    <Image
+                      src={image}
+                      alt={"logo"}
+                      fill
+                      className={`object-cover transition-all duration-300 ${isActive
+                          ? "brightness-90 scale-105"
+                          : "brightness-40 hover:brightness-60 scale-100 hover:scale-105"
+                        }`}
+                      sizes="220px"
+                    />
+
+                    {/* Active indicator */}
+                    {isActive && (
+                      <div className="absolute inset-x-0 bottom-0 h-[2px] bg-red-500" />
+                    )}
+
+                    {/* Label on hover */}
+                    <div
+                      className={`absolute inset-0 flex items-end p-2 transition-opacity duration-200 ${isActive ? "opacity-100" : "opacity-0 hover:opacity-100"
+                        }`}
+                    >
+                      {/* <span className="text-[9px] text-white/70 tracking-wider leading-tight line-clamp-2">
+                        {LABELS[index]}
+                      </span> */}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Dot nav */}
+          <div className="flex items-center gap-2 mt-5">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`transition-all duration-300 rounded-full outline-none ${i === activeIndex
+                    ? "w-6 h-1.5 bg-red-500"
+                    : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
+                  }`}
+                aria-label={`Go to image ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/97 backdrop-blur-md"
+          style={{ animation: "fadeIn 0.2s ease" }}
+          onClick={() => setLightbox(null)}
+        >
+          {/* Header bar */}
+          <div className="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-6 bg-gradient-to-b from-black/60 to-transparent z-10">
+            <div className="flex items-center gap-3">
+              <span className="text-white/30 text-[10px] tracking-[0.35em] uppercase">
+                Past Edition
+              </span>
+              <span className="text-white/20 text-[10px]">·</span>
+              <span className="text-white/50 text-[10px] font-mono tracking-widest">
+                {String(lightboxIndex + 1).padStart(2, "0")} /{" "}
+                {String(images.length).padStart(2, "0")}
+              </span>
+            </div>
+            <button
+              onClick={() => setLightbox(null)}
+              className="flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase font-semibold text-white/40 hover:text-white transition-colors"
+            >
+              <svg
+                width="12"
+                height="12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+              Close
+            </button>
+          </div>
+
+          {/* Image */}
+          <div
+            className="relative"
+            style={{ animation: "scaleIn 0.2s ease" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={lightbox}
+              alt={"logo"}
+              width={1400}
+              height={875}
+              className="block max-w-[88vw] max-h-[80vh] object-contain"
+            />
+            {/* Caption */}
+            {/* <div className="absolute -bottom-8 left-0 text-white/40 text-xs tracking-widest uppercase">
+              {LABELS[lightboxIndex]}
+            </div> */}
+          </div>
+
+          {/* Prev / Next */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              lightboxNav(-1);
+            }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white/60 hover:text-white transition-all duration-200"
+            aria-label="Previous"
+          >
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              lightboxNav(1);
+            }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white/60 hover:text-white transition-all duration-200"
+            aria-label="Next"
+          >
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      )}
+
+      <style>{`
         @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
-        @keyframes scaleIn { from { opacity: 0; transform: scale(0.96) } to { opacity: 1; transform: scale(1) } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.97) } to { opacity: 1; transform: scale(1) } }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .brightness-40 { filter: brightness(0.4); }
+        .brightness-60 { filter: brightness(0.6); }
       `}</style>
-        </>
-    );
+    </>
+  );
 };

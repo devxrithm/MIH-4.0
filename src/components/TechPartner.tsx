@@ -29,7 +29,6 @@ const TechPartner = () => {
                             className="object-contain"
                             width={500}
                             height={500}
-                            className="object-contain rounded"
                         />
                     </div>
                     <h1 className="text-xl text-center font-bold tracking-widest uppercase text-white/80 group-hover:text-white group-hover:text-primary transition-colors">

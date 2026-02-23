@@ -35,12 +35,12 @@ export default function Home() {
       <Domains />
       <Timeline />
       <Prizes />
-      <CommunityPartner/>
+      {/* <CommunityPartner/> */}
       <ChiefPatron/>
       <div id="team">
         <TeamCarousel title="Organizing Team" members={TEAM_MEMBERS} />
       </div>
-      <Partners />
+      {/* <Partners /> */}
       <QrCode/>
       <Banner/>
       <Gallery />

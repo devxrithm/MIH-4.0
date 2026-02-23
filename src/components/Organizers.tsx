@@ -4,14 +4,14 @@ import Image from 'next/image';
 import { ORGANIZERS_DATA } from '@/lib/data';
 
 const OrganizerCard = ({ name, logo, type }: { name: string; logo: string; type: string }) => (
-  <div className="group relative bg-zinc-900 border border-red-500 p-5 text-center transition-all duration-300 hover:scale-105 hover:bg-primary/20 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] w-72 [clip-path:polygon(15%_0,_85%_0,_100%_100%,_0_100%)] flex flex-col justify-center items-center">
-    <div className="relative h-32">
+  <div className="group relative bg-zinc-900 p-5 text-center transition-all duration-300 hover:scale-105 hover:bg-primary/20 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] w-72 flex flex-col justify-center items-center rounded-lg">
+    <div className="relative h-32 flex items-center">
       <Image
         src={logo}
         alt={`${name} logo`}
         width={120}
         height={120}
-        className="object-contain transition-transform duration-300 group-hover:scale-110"
+        className="object-contain transition-transform duration-300 group-hover:scale-110 rounded"
       />
     </div>
     <h3 className="text-xl font-bold tracking-widest uppercase font-headline text-white">{name}</h3>

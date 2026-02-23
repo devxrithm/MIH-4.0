@@ -35,11 +35,11 @@ export function Navbar() {
           <Link href="/" className="flex justify-center items-center gap-0 lg:gap-3">
             {/* <div className="relative w-[110px] h-[48px]"> */}
               <Image
-                src="/iimt-logo.png"
+                src="/iimt-logo.jpeg"
                 alt="IIMT Logo"
                 width={180}
                 height={180}
-                className="object-contain"
+                className="object-contain rounded"
               />
             {/* </div> */}
 

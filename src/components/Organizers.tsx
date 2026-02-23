@@ -1,23 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import { ORGANIZERS_DATA } from '@/lib/data';
 
-const OrganizerCard = ({ name, logo, type }: { name: string; logo: string; type: string }) => (
-  <div className="group relative bg-zinc-900 p-5 text-center transition-all duration-300 hover:scale-105 hover:bg-primary/20 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] w-72 flex flex-col justify-center items-center rounded-lg">
-    <div className="relative h-32 flex items-center">
-      <Image
-        src={logo}
-        alt={`${name} logo`}
-        width={120}
-        height={120}
-        className="object-contain transition-transform duration-300 group-hover:scale-110 rounded"
-      />
-    </div>
-    <h3 className="text-xl font-bold tracking-widest uppercase font-headline text-white">{name}</h3>
-    <p className="text-primary tracking-widest uppercase text-sm font-medium">{type}</p>
-  </div>
-);
+const cardClass =
+  'group bg-zinc-900 text-center transition-all duration-300 hover:scale-105 hover:bg-primary/20 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] w-72 flex flex-col items-center rounded-lg overflow-hidden';
+
+const imgWrapperStyle = {
+  width: '100%',
+  height: '180px',
+  position: 'relative' as const,
+  backgroundColor: '#ffffff',
+  flexShrink: 0,
+};
 
 export function Organizers() {
   return (
@@ -32,10 +26,65 @@ export function Organizers() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-12">
-          {ORGANIZERS_DATA.map((org) => (
-            <OrganizerCard key={org.name} {...org} />
-          ))}
+        <div className="flex flex-wrap items-stretch justify-center gap-8">
+
+          {/* Card 1 — IIMT */}
+          <div className={cardClass}>
+            <div style={imgWrapperStyle} className="transition-transform duration-300 group-hover:scale-105 flex items-center">
+              <Image
+                src="/iimt-logo.jpeg"
+                alt="IIMT logo"
+                width={300}
+                height={100}
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
+            <div className="flex flex-col items-center gap-1 py-5 px-4">
+              <h3 className="text-base font-bold tracking-widest uppercase font-headline text-white leading-tight">
+                IIMT
+              </h3>
+              <p className="text-primary tracking-widest uppercase text-xs font-medium">Organizer</p>
+            </div>
+          </div>
+
+          {/* Card 2 — IIIT Delhi */}
+          <div className={cardClass}>
+            <div style={imgWrapperStyle} className="transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/logo.jpg"
+                alt="IIIT Delhi logo"
+                fill
+                sizes="288px"
+                style={{ objectFit: 'contain', padding: '16px' }}
+              />
+            </div>
+            <div className="flex flex-col items-center gap-1 py-5 px-4">
+              <h3 className="text-base font-bold tracking-widest uppercase font-headline text-white leading-tight">
+                IIIT Delhi
+              </h3>
+              <p className="text-primary tracking-widest uppercase text-xs font-medium">Organizer</p>
+            </div>
+          </div>
+
+          {/* Card 3 — IIMT LBF */}
+          <div className={cardClass}>
+            <div style={imgWrapperStyle} className="transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/iimt-blf.png"
+                alt="IIMT LBF logo"
+                fill
+                sizes="288px"
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
+            <div className="flex flex-col items-center gap-1 py-5 px-4">
+              <h3 className="text-base font-bold tracking-widest uppercase font-headline text-white leading-tight">
+                IIMT LBF
+              </h3>
+              <p className="text-primary tracking-widest uppercase text-xs font-medium">Organizer</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

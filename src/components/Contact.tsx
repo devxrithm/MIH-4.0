@@ -39,7 +39,7 @@ export function Contact() {
     { icon: <Twitter />, href: CONTACT_INFO.socials.twitter },
     { icon: <Instagram />, href: CONTACT_INFO.socials.instagram },
     { icon: <Linkedin />, href: CONTACT_INFO.socials.linkedin },
-    { icon: <MessageSquare />, href: CONTACT_INFO.socials.discord },
+    // { icon: <MessageSquare />, href: CONTACT_INFO.socials.discord },
   ];
 
   return (

@@ -106,9 +106,8 @@ export const CONTACT_INFO = {
   phone: '+91 89579 87040 , +91 95609 36013',
   address: 'IIMT College Of Engineering, Knowledge Park III, Greater Noida, UP',
   socials: {
-    twitter: '#',
-    instagram: '#',
-    linkedin: '#',
-    discord: '#',
+    twitter: 'https://x.com/iimtnoida',
+    instagram: 'https://www.instagram.com/iimtindia/',
+    linkedin: 'https://www.linkedin.com/school/iimt-group-colleges/'
   }
 };

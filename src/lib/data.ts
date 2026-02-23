@@ -87,7 +87,7 @@ export const TEAM_MEMBERS = [
   { name: 'Shekhar', role: 'Chief Executive Officer', image: '/shekhar.png' },
   { name: 'Ujjwal Katiyar', role: 'Chief Technical Officer', image: '/ujjwal.jpeg' },
   { name: 'Harsh Vardhan', role: 'Technical Lead', image:'/harsh.jpeg' },
-  { name: 'Sara Khan', role: 'Design Lead', image: PlaceHolderImages.find(img => img.id === 'team-member-1')?.imageUrl || '/' },
+  { name: 'Khushi', role: 'Design Lead', image:'/khushi.jpeg' },
   { name: 'Sara Khan', role: 'Design Lead', image: PlaceHolderImages.find(img => img.id === 'team-member-1')?.imageUrl || '' },
   { name: 'Sara Khan', role: 'Design Lead', image: PlaceHolderImages.find(img => img.id === 'team-member-1')?.imageUrl || '' },
   { name: 'Sara Khan', role: 'Design Lead', image: PlaceHolderImages.find(img => img.id === 'team-member-1')?.imageUrl || '' },
@@ -102,9 +102,9 @@ export const FAQ_ITEMS = [
 ];
 
 export const CONTACT_INFO = {
-  email: 'contact@mih.iimt.ac.in',
-  phone: '+91 98765 43210',
-  address: 'IIMT Group of Institutions, Knowledge Park III, Greater Noida, UP',
+  email: 'iimthackathon_gn@gmail.com',
+  phone: '+91 98765 43210 , +91 98765 43211',
+  address: 'IIMT College Of Engineering, Knowledge Park III, Greater Noida, UP',
   socials: {
     twitter: '#',
     instagram: '#',

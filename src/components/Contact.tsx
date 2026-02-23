@@ -6,8 +6,35 @@ import { Card } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
+import { useState } from 'react';
 
 export function Contact() {
+
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event: any) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "352c954a-0cba-4d26-a53e-80b52904ce3b");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   const socialIcons = [
     { icon: <Twitter />, href: CONTACT_INFO.socials.twitter },
     { icon: <Instagram />, href: CONTACT_INFO.socials.instagram },
@@ -59,7 +86,7 @@ export function Contact() {
                 <p className="text-base font-bold tracking-wide uppercase text-white/80 leading-relaxed">{CONTACT_INFO.address}</p>
               </div>
             </div>
-            
+
             <div className="border-t border-white/10 pt-8 mt-auto">
               <h3 className="text-xl font-black tracking-widest uppercase mb-6 font-headline text-center">Follow Us</h3>
               <div className="flex flex-wrap justify-center gap-4">
@@ -81,7 +108,7 @@ export function Contact() {
           {/* Contact Form Card */}
           <Card className="bg-primary/5 border border-primary/30 p-8 md:p-12">
             <h3 className="text-2xl md:text-3xl font-black tracking-tighter uppercase mb-8 font-headline">Send a Message</h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={onSubmit}>
               <div className="transform skew-x-[-12deg] w-full">
                 <Input
                   type="text"

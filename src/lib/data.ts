@@ -103,7 +103,7 @@ export const FAQ_ITEMS = [
 
 export const CONTACT_INFO = {
   email: 'iimthackathon_gn@gmail.com',
-  phone: '+91 98765 43210 , +91 98765 43211',
+  phone: '+91 89579 87040 , +91 95609 36013',
   address: 'IIMT College Of Engineering, Knowledge Park III, Greater Noida, UP',
   socials: {
     twitter: '#',

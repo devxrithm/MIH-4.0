@@ -40,7 +40,7 @@ export const ABOUT_DATA = [
 ];
 
 export const ORGANIZERS_DATA = [
-  { name: 'IIMT', logo: '/iimt.png', type: 'organizer' },
+  { name: 'IIMT', logo: '/iimt-logo.jpeg', type: 'organizer' },
   { name: 'IIIT Delhi', logo: '/logo.jpg', type: 'organizer' },
   { name: 'IIMT LBF', logo: '/iimt-blf.png', type: 'organizer' },
 ];
@@ -83,13 +83,13 @@ export const PARTNERS = [
 export const TEAM_MEMBERS = [
   { name: 'Harshit', role: 'Team lead', image: '/harshit.jpeg' },
   { name: 'Jagriti', role: 'Team lead', image:'/jagriti.jpeg' },
-  { name: 'Prakshi', role: 'Sponsorship lead', image:'/prakshi.jpeg' },
-  { name: 'Anshika Singh', role: 'Design lead', image: '/anshika.jpeg' },
   { name: 'Shekhar', role: 'Technical lead', image: '/shekhar.png' },
   { name: 'Ujjwal Katiyar', role: 'Technical lead', image: '/ujjwal.jpeg' },
+  { name: 'Anshika Singh', role: 'Design lead', image: '/anshika.jpeg' },
   { name: 'Harsh Vardhan', role: 'Design lead', image:'/harsh.jpeg' },
   { name: 'Khushi', role: 'Event management lead', image:'/khushi.jpeg' },
   { name: 'Shashank', role: 'Sponsorship lead', image:'/shashank.jpeg' },
+  { name: 'Prakshi', role: 'Sponsorship lead', image:'/prakshi.jpeg' },
   { name: 'Vibhashu', role: 'Sponsorship lead', image:'/vibhashu.jpeg' },
   
 ];

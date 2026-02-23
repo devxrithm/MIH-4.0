@@ -27,7 +27,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
         </div>
         <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
             <h3 className="text-lg font-black uppercase text-white font-headline">{member.name}</h3>
-            {/* <p className="text-primary font-bold tracking-widest uppercase text-sm">{member.role}</p> */}
+            <p className="text-primary font-bold tracking-widest uppercase text-sm">{member.role}</p>
         </div>
     </div>
 );

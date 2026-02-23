@@ -87,10 +87,12 @@ export const TEAM_MEMBERS = [
   { name: 'Ujjwal Katiyar', role: 'Technical lead', image: '/ujjwal.jpeg' },
   { name: 'Anshika Singh', role: 'Design lead', image: '/anshika.jpeg' },
   { name: 'Harsh Vardhan', role: 'Design lead', image:'/harsh.jpeg' },
+  { name: 'Chirag', role: 'Content lead', image:'/chirag.jpeg' },
   { name: 'Khushi', role: 'Event management lead', image:'/khushi.jpeg' },
   { name: 'Shashank', role: 'Sponsorship lead', image:'/shashank.jpeg' },
   { name: 'Prakshi', role: 'Sponsorship lead', image:'/prakshi.jpeg' },
   { name: 'Vibhashu', role: 'Sponsorship lead', image:'/vibhashu.jpeg' },
+  { name: 'Abhinav', role: 'Pr lead', image:'/Abhinav.jpeg' },
   
 ];
 

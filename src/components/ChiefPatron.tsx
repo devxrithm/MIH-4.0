@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import React from 'react';
 
@@ -28,6 +27,8 @@ const leadership = [
         members: [
             { name: 'Dr. Amit Shukla', role: 'HOD CSE' },
             { name: 'Dr. Laveena Sehgal', role: 'Associate Professor' },
+            { name: 'Mr. Pragya Deep', role: 'Associate Professor' },
+            
         ],
     },
 ];
@@ -43,7 +44,7 @@ const supportingOrgs = [
 const PatronCard = ({ name, role }: { name: string, role: string }) => (
     <div className="w-full bg-card/50 border border-primary/30 glow-hover p-6 text-center transition-all duration-300 transform skew-x-[-12deg] hover:bg-primary/20">
         <div className="transform skew-x-[12deg]">
-            <h3 className="text-3xl font-bold tracking-wider uppercase font-headline text-primary">{name}</h3>
+            <h3 className="text-2xl font-bold tracking-wider uppercase font-headline text-primary">{name}</h3>
             <p className="text-white/70 tracking-widest uppercase text-lg">{role}</p>
         </div>
     </div>
@@ -58,7 +59,7 @@ const ChiefPatron = () => {
                         <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter uppercase font-headline section-underline">
                             {group.category}
                         </h2>
-                        <div className={`grid grid-cols-1 bg-zinc-950 ${group.members.length > 1 ? 'md:grid-cols-2' : 'max-w-lg mx-auto'} gap-5`}>
+                        <div className={`grid grid-cols-1 bg-zinc-950 ${group.members.length > 2 ? 'md:grid-cols-3' : (group.members.length > 1 ? 'md:grid-cols-2' : 'max-w-lg mx-auto')} gap-5`}>
                             {group.members.map((patron, index) => (
                                 <PatronCard key={index} name={patron.name} role={patron.role} />
                             ))}

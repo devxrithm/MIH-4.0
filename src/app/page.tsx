@@ -19,6 +19,7 @@ import { QrCode } from '@/components/QrCode';
 import CommunityPartner from '@/components/CommunityPartner';
 import { Banner } from '@/components/Banner';
 import { Gallery } from '@/components/Gallery';
+import { Brocheur } from '@/components/Brocheur';
 
 
 export default function Home() {
@@ -44,6 +45,7 @@ export default function Home() {
       <QrCode/>
       <Banner/>
       <Gallery />
+      <Brocheur/>
       <FAQ />
       <Contact />
       <Footer />

@@ -35,7 +35,7 @@ export function Navbar() {
           <Link href="/" className="flex justify-center items-center gap-0 lg:gap-3">
             {/* <div className="relative w-[110px] h-[48px]"> */}
               <Image
-                src="/iimt-logo.jpeg"
+                src="/IIMT-LOGO.png"
                 alt="IIMT Logo"
                 width={180}
                 height={180}

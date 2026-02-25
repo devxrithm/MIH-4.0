@@ -27,7 +27,7 @@ const leadership = [
         members: [
             { name: 'Dr. Amit Shukla', role: 'HOD CSE' },
             { name: 'Dr. Laveena Sehgal', role: 'Associate Professor' },
-            { name: 'Mr. Pragya Deep', role: 'Associate Professor' },
+            { name: 'Mr. Pragya Deep', role: 'Assistant Professor' },
             
         ],
     },

@@ -21,7 +21,7 @@ export function Prizes() {
         <div className="w-[80%] md:w-[70%] bg-red-600 border border-primary glow-hover p-8 md:p-12 text-center transition-all duration-300 transform skew-x-[-12deg] hover:scale-105 hover:bg-primary">
           <div className="transform skew-x-[12deg] text-white">
             <h1 className="text-2xl md:text-4xl font-bold flex flex-col justify-center items-center gap-2 md:gap-4">
-              PRICE POOL UPTO <span className="text-5xl md:text-8xl font-black">10,0000 Rs</span>
+              PRICE POOL UPTO <span className="text-5xl md:text-8xl font-black">1,00,000 Rs</span>
             </h1>
           </div>
         </div>

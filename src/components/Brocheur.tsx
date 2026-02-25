@@ -1,17 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
-import { Download } from 'lucide-react';
 
 export function Brocheur() {
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = '/brochure.pdf';
-        link.download = 'brochure.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
 
     return (
         <section id="brochure" className="py-16">
@@ -22,13 +14,14 @@ export function Brocheur() {
                 <p className="text-lg text-white/60 uppercase tracking-widest font-medium">
                     Download the brochure to know more about the event.
                 </p>
-                <button
-                    onClick={handleDownload}
+                <Link
+                    href={`https://drive.google.com/uc?export=download&id=1mCw5pO-SvRar_p1XFfLe9kPTBS0vlVz8`}
                     className="cursor-pointer mt-8 bg-primary text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 hover:bg-primary/80 inline-flex items-center gap-2"
                 >
-                    <Download className="h-5 w-5" />
+                    <p className='cursor-pointer'>
                     Download Brochure
-                </button>
+                    </p>
+                </Link>
             </div>
         </section>
     );

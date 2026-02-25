@@ -32,7 +32,7 @@ export function Organizers() {
           <div className={cardClass}>
             <div style={imgWrapperStyle} className="transition-transform duration-300 group-hover:scale-105 flex items-center">
               <Image
-                src="/iimt-logo.jpeg"
+                src="/iimt-1.png"
                 alt="IIMT logo"
                 width={300}
                 height={100}

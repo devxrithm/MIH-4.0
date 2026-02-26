@@ -6,7 +6,7 @@ import React from 'react';
 export function Brocheur() {
 
     return (
-        <section id="brochure" className="py-16">
+        <section id="brochure" className="py-16 relative z-10">
             <div className="text-center mb-16 px-4">
                 <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter uppercase font-headline section-underline">
                     Brochure
@@ -15,12 +15,10 @@ export function Brocheur() {
                     Download the brochure to know more about the event.
                 </p>
                 <Link
-                    href={`https://drive.google.com/uc?export=download&id=1mCw5pO-SvRar_p1XFfLe9kPTBS0vlVz8`}
+                    href='https://drive.google.com/uc?export=download&id=1mCw5pO-SvRar_p1XFfLe9kPTBS0vlVz8'
                     className="cursor-pointer mt-8 bg-primary text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 hover:bg-primary/80 inline-flex items-center gap-2"
                 >
-                    <p className='cursor-pointer'>
                     Download Brochure
-                    </p>
                 </Link>
             </div>
         </section>

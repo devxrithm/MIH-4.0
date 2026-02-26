@@ -1,10 +1,11 @@
 
 import type {Metadata} from 'next';
 import './globals.css';
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'MIH 4.0 | Mind Installers Hackathon',
-  description: 'Join the ultimate 24-hour hackathon at IIMT Group of Institutions.',
+  description: 'Join the ultimate 24-hour hackathon at IIMT College Of Engineering.',
 };
 
 export default function RootLayout({
@@ -21,6 +22,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-black text-white selection:bg-primary selection:text-white">
+      <Analytics/>
         {children}
       </body>
     </html>

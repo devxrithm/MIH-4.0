@@ -92,6 +92,7 @@ export const TEAM_MEMBERS = [
   { name: 'Kunal', role: 'Content lead', image:'/kunal.jpeg' },
   { name: 'Shashank', role: 'Sponsorship lead', image:'/shashank.jpeg' },
   { name: 'Prakshi', role: 'Sponsorship lead', image:'/prakshi.jpeg' },
+  { name: 'Naveen', role: 'Sponsorship lead', image:'/naveen.jpeg' },
   { name: 'Vibhashu', role: 'Sponsorship lead', image:'/vibhashu.jpeg' },
   { name: 'Abhinav', role: 'Pr lead', image:'/Abhinav.jpeg' },
   
@@ -106,8 +107,8 @@ export const FAQ_ITEMS = [
 ];
 
 export const CONTACT_INFO = {
-  email: 'iimthackathon_gn@gmail.com',
-  phone: '+91 89579 87040 , +91 95609 36013',
+  email: 'iimthackathon_gn@gmail.com | pragya4491_gn@iimtindia.net ',
+  phone: '+91 9839229905 | +91 89579 87040 ',
   address: 'IIMT College Of Engineering, Knowledge Park III, Greater Noida, UP',
   socials: {
     twitter: 'https://x.com/iimtnoida',

@@ -89,6 +89,7 @@ export const TEAM_MEMBERS = [
   { name: 'Anshika Singh', role: 'Design lead', image: '/anshika.jpeg' },
   { name: 'Harsh Vardhan', role: 'Design lead', image:'/harsh.jpeg' },
   { name: 'Khushi', role: 'Event management lead', image:'/khushi.jpeg' },
+  { name: 'Sazid Sheikh', role: 'Content lead', image:'/sazid.png' },
   { name: 'Chirag', role: 'Content lead', image:'/chirag.jpeg' },
   { name: 'Kunal', role: 'Content lead', image:'/kunal.jpeg' },
   { name: 'Shashank', role: 'Sponsorship lead', image:'/shashank.jpeg' },

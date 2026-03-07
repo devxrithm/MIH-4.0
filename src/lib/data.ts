@@ -62,7 +62,7 @@ export const TIMELINE = [
   { date: 'Feb 20', event: 'Registration Starts', description: 'Early bird registrations open for teams.' },
   { date: 'March 18', event: 'Proposal Submission', description: 'Abstract submission deadline for project ideas.' },
   { date: 'March 22', event: 'Shortlisting', description: 'Announcement of teams selected for the final round.' },
-  { date: 'March 25-26', event: 'Online Round', description: 'Arrival at venue and start of the 24-hour sprint.' },
+  { date: 'March 25-26', event: 'Online Round', description: 'Beginning of online'},
   { date: 'April 3', event: 'Grand Finale', description: 'Arrival at venue and start of the 24-hour sprint.' },
   { date: 'April 4', event: 'Award Ceremony', description: 'Winner announcements and prize distribution.' },
 ];

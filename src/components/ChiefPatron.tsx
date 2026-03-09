@@ -12,7 +12,7 @@ const leadership = [
     {
         category: 'Patrons',
         members: [
-            { name: 'Prof.(Dr) Harshit Sinha', role: 'Director General (Academics)' },
+            { name: 'Prof.(Dr) Harshit Sinha', role: 'Dy. Director General (Academics)' },
             { name: 'Prof.(Dr) Chetan Khemraj', role: 'Director (College Of Engineering)' },
         ],
     },

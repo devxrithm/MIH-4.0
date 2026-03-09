@@ -51,8 +51,8 @@ export function Navbar() {
               <Image
                 src="/Mihlogo1.png"
                 alt="MIH Logo"
-                width={70}
-                height={70}
+                width={85}
+                height={85}
                 className="object-contain rounded-xl"
               />
             {/* </div> */}

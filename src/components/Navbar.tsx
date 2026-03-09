@@ -49,7 +49,7 @@ export function Navbar() {
 
             {/* <div className="relative w-[100px] h-[40px]"> */}
               <Image
-                src="/mih.png"
+                src="/Mihlogo.jpg"
                 alt="MIH Logo"
                 width={120}
                 height={120}

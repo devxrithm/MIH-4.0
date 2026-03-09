@@ -34,7 +34,8 @@ const leadership = [
 ];
 
 const supportingOrgs = [
-    { src: '/Csi_logo_india.webp', alt: 'CSI Logo' },
+    { src: '/Ieee.jpg', alt: 'CSI Logo' },
+{ src: '/Csi_logo_india.webp', alt: 'CSI Logo' },
     { src: '/ashare.webp', alt: 'ASHARE Logo' },
     { src: '/iste.webp', alt: 'ISTE Logo' },
     { src: '/ishare.webp', alt: 'ISHARE Logo' },

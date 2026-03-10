@@ -15,7 +15,7 @@ export const NAV_LINKS = [
 export const HERO_DATA = {
   title: 'MIND INSTALLERS HACKATHON 4.0',
   tagline: 'Unleash Your Innovation. Build the Future.',
-  date: 'April 3-4, 2026',
+  date: 'April 15-16, 2026',
   venue: 'IIMT College Of Engineering, Greater Noida',
   time: '30 Hr',
 };
@@ -60,11 +60,11 @@ export const DOMAINS = [
 
 export const TIMELINE = [
   { date: 'Feb 20', event: 'Registration Starts', description: 'Early bird registrations open for teams.' },
-  { date: 'March 18', event: 'Proposal Submission', description: 'Abstract submission deadline for project ideas.' },
-  { date: 'March 22', event: 'Shortlisting', description: 'Announcement of teams selected for the final round.' },
-  { date: 'March 25-26', event: 'Online Round', description: 'Beginning of online round'},
-  { date: 'April 3', event: 'Grand Finale', description: 'Arrival at venue and start of the 24-hour sprint.' },
-  { date: 'April 4', event: 'Award Ceremony', description: 'Winner announcements and prize distribution.' },
+  { date: 'March 31', event: 'Proposal Submission', description: 'Abstract submission deadline for project ideas.' },
+  { date: 'April 2', event: 'Shortlisting', description: 'Announcement of teams selected for the final round.' },
+  { date: 'April 3-4', event: 'Online Round', description: 'Beginning of online round'},
+  { date: 'April 15', event: 'Grand Finale', description: 'Arrival at venue and start of the 24-hour sprint.' },
+  { date: 'April 16', event: 'Award Ceremony', description: 'Winner announcements and prize distribution.' },
 ];
 
 export const PRIZES = [

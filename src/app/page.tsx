@@ -42,7 +42,7 @@ export default function Home() {
       </div>
       {/* <Partners /> */}
       <QrCode/>
-      <Banner/>
+      {/* <Banner/> */}
       <Gallery />
       <Brocheur/>
       <FAQ />

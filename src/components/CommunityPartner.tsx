@@ -52,13 +52,13 @@ const PatronCard = ({ name, role }: { name: string, role: string }) => (
 
 const ChiefPatron = () => {
     return (
-        <section id="leadership" className="px-6 overflow-hidden">
+        <section id="leadership" className="px-6">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mt-24 flex justify-center w-full flex-col items-center">
                     <h2 className="text-4xl md:text-5xl font-black mb-12 tracking-tighter uppercase font-headline section-underline">
                         Organizing <span className="text-red-500">Communities</span>
                     </h2>
-                    <div className="z-50 rounded-2xl bg-zinc-800 border border-primary/30 p-3 lg:px-8 flex  justify-center ">
+                    <div className="rounded-2xl bg-zinc-900 border border-primary/30 p-5 lg:p-8 flex  justify-center w-72 lg:w-auto z-10">
                         <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-8 p-2">
                             {supportingOrgs2.map((org, index) => (
                                 <Image

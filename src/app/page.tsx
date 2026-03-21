@@ -30,16 +30,16 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Organizers />
-      <TechPartner/>
       <Domains />
       <Timeline />
       <Prizes />
-      {/* <CommunityPartner/> */}
-      <ChiefPatron/>
+      <Organizers />
+      <TechPartner/>
+      <CommunityPartner/>
       <div id="team">
         <TeamCarousel title="Organizing Team" members={TEAM_MEMBERS} />
       </div>
+      <ChiefPatron/>
       {/* <Partners /> */}
       <QrCode/>
       {/* <Banner/> */}

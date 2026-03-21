@@ -27,8 +27,6 @@ export function Organizers() {
         </div>
 
         <div className="flex flex-wrap items-stretch justify-center gap-8">
-
-          {/* Card 1 — IIMT */}
           <div className={cardClass}>
             <div style={imgWrapperStyle} className="transition-transform duration-300 group-hover:scale-105 flex items-center">
               <Image
@@ -46,8 +44,6 @@ export function Organizers() {
               <p className="text-primary tracking-widest uppercase text-xs font-medium">Organizer</p>
             </div>
           </div>
-
-          {/* Card 2 — IIIT Delhi */}
           <div className={cardClass}>
             <div style={imgWrapperStyle} className="transition-transform duration-300 group-hover:scale-105">
               <Image

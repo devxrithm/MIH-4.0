@@ -36,7 +36,9 @@ const supportingOrgs = [
     { src: 'https://gdgnoida.com/assets/noida_long_logo0.svg', alt: 'CSI Logo' },
 ];
 const supportingOrgs2 = [
-    { src: '/commudle.svg', alt: 'CSI Logo' },
+    { src: '/gdg.jfif', alt: 'gdg Logo' },
+    { src: '/hwi.jpeg', alt: 'hwi Logo' },
+    { src: '/s4n.png', alt: 'startup4nation logo' },
 ];
 
 const PatronCard = ({ name, role }: { name: string, role: string }) => (
@@ -50,42 +52,22 @@ const PatronCard = ({ name, role }: { name: string, role: string }) => (
 
 const ChiefPatron = () => {
     return (
-        <section id="leadership" className="py-24 px-6 overflow-hidden">
+        <section id="leadership" className="px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto">
-
-                <div className="text-center mt-24 ">
-                    <h2 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter uppercase font-headline section-underline">
-                        Community Partner
-                    </h2>
-                    <div className="bg-zinc-950 border border-primary/30 p-8">
-                        <div className="flex justify-center items-center flex-wrap gap-x-16 gap-y-8 bg-white p-2">
-                            {supportingOrgs.map((org, index) => (
-                                <Image
-                                    key={index}
-                                    src={org.src}
-                                    height={300}
-                                    width={300}
-                                    alt={org.alt}
-                                    className="object-contain transition-transform duration-300 hover:scale-110 filter grayscale hover:grayscale-0"
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
                 <div className="text-center mt-24 flex justify-center w-full flex-col items-center">
-                    <h2 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter uppercase font-headline section-underline">
-                        Platform Partner
+                    <h2 className="text-4xl md:text-5xl font-black mb-12 tracking-tighter uppercase font-headline section-underline">
+                        Organizing <span className="text-red-500">Communities</span>
                     </h2>
-                    <div className="bg-zinc-800 border border-primary/30 p-8 w-96 flex justify-center ">
-                        <div className="flex justify-center items-center flex-wrap gap-x-16 gap-y-8 p-2">
+                    <div className="z-50 rounded-2xl bg-zinc-800 border border-primary/30 p-8 flex justify-center ">
+                        <div className="flex justify-center items-center gap-x-16 gap-y-8 p-2">
                             {supportingOrgs2.map((org, index) => (
                                 <Image
                                     key={index}
                                     src={org.src}
-                                    height={500}
-                                    width={500}
+                                    height={150}
+                                    width={150}
                                     alt={org.alt}
-                                    className="object-contain transition-transform duration-300 hover:scale-110 filter grayscale hover:grayscale-0"
+                                    className="rounded-xl object-contain transition-transform duration-300 hover:scale-110 filter grayscale hover:grayscale-0"
                                 />
                             ))}
                         </div>

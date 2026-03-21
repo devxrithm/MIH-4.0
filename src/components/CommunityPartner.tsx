@@ -58,8 +58,8 @@ const ChiefPatron = () => {
                     <h2 className="text-4xl md:text-5xl font-black mb-12 tracking-tighter uppercase font-headline section-underline">
                         Organizing <span className="text-red-500">Communities</span>
                     </h2>
-                    <div className="z-50 rounded-2xl bg-zinc-800 border border-primary/30 p-8 flex justify-center ">
-                        <div className="flex justify-center items-center gap-x-16 gap-y-8 p-2">
+                    <div className="z-50 rounded-2xl bg-zinc-800 border border-primary/30 p-3 lg:px-8 flex  justify-center ">
+                        <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-8 p-2">
                             {supportingOrgs2.map((org, index) => (
                                 <Image
                                     key={index}

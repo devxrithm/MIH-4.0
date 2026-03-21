@@ -36,7 +36,7 @@ const supportingOrgs = [
     { src: 'https://gdgnoida.com/assets/noida_long_logo0.svg', alt: 'CSI Logo' },
 ];
 const supportingOrgs2 = [
-    { src: '/gdg.jfif', alt: 'gdg Logo' },
+    { src: '/gdg.jpg', alt: 'gdg Logo' },
     { src: '/hwi.jpeg', alt: 'hwi Logo' },
     { src: '/s4n.png', alt: 'startup4nation logo' },
 ];

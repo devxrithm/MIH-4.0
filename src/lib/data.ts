@@ -83,7 +83,7 @@ export const PARTNERS = [
 export const TEAM_MEMBERS = [
   { name: 'Harshit', role: 'Team lead', image: '/harshit.jpeg' },
   { name: 'Jagriti', role: 'Team lead', image:'/jagriti.jpeg' },
-  { name: 'Shekhar', role: 'Technical lead', image: '/shekhar.png' },
+  { name: 'Shekhar', role: 'Technical lead', image: '/shekharr.png' },
   { name: 'Ujjwal Katiyar', role: 'Technical lead', image: '/ujjwal.jpeg' },
 { name: 'Anshika Singh', role: 'Design lead', image: '/anshika.jpeg' },
   { name: 'Akshat', role: 'Design lead', image:'/akshat.webp' },

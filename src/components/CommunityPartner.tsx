@@ -3,38 +3,8 @@ import Image from 'next/image';
 import React from 'react';
 
 // Data for patrons and organizers
-const leadership = [
-    {
-        category: 'Chief Patron',
-        members: [
-            { name: 'Dr. Mayank Aggarwal', role: 'Managing Director' },
-        ],
-    },
-    {
-        category: 'Patrons',
-        members: [
-            { name: 'Prof.(Dr) Harshit Sinha', role: 'Director General (Academics)' },
-            { name: 'Prof.(Dr) Chetan Khemraj', role: 'Director (College Of Engineering)' },
-        ],
-    },
-    {
-        category: 'Convenor',
-        members: [
-            { name: 'Prof(Dr) Seema Nayak', role: 'Dean IQAC, IIMT College of Engineering' },
-        ],
-    },
-    {
-        category: 'Co-ordinator',
-        members: [
-            { name: 'Dr. Amit Shukla', role: 'HOD CSE' },
-            { name: 'Dr. Laveena Sehgal', role: 'Associate Professor' },
-        ],
-    },
-];
 
-const supportingOrgs = [
-    { src: 'https://gdgnoida.com/assets/noida_long_logo0.svg', alt: 'CSI Logo' },
-];
+
 const supportingOrgs2 = [
     { src: '/gdg.jpg', alt: 'gdg Logo' },
     { src: '/hwi.jpeg', alt: 'hwi Logo' },

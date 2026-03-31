@@ -20,6 +20,7 @@ import CommunityPartner from '@/components/CommunityPartner';
 import { Banner } from '@/components/Banner';
 import { Gallery } from '@/components/Gallery';
 import { Brocheur } from '@/components/Brocheur';
+import Sponsor from '@/components/Sponsor';
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
       <Organizers />
       <TechPartner/>
       <CommunityPartner/>
+      <Sponsor/>
       <div id="team">
         <TeamCarousel title="Organizing Team" members={TEAM_MEMBERS} />
       </div>

@@ -50,10 +50,10 @@ const Sponsor = () => {
         <section id="leadership" className="px-6">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mt-24 flex justify-center w-full flex-col items-center">
-                    <h2 className="text-4xl md:text-5xl font-black mb-12 tracking-tighter uppercase font-headline section-underline">
+                    <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase font-headline section-underline">
                         Sponsor <span className="text-red-500"></span>
                     </h2>
-                    <div className="flex flex-wrap justify-center items-center pb-36">
+                    <div className="flex flex-wrap justify-center items-center pb-10 lg:pb-28">
                         {sponsors.map((sponsor) => (
                             <div key={sponsor.name} className="p-2 flex justify-center z-10">
                                 <div className="relative w-[300px] sm:w-[400px] h-[180px] lg:h-[200px]">

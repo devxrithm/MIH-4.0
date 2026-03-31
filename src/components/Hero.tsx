@@ -58,7 +58,7 @@ export function Hero() {
             size="lg"
             className=" cta-pulse bg-primary hover:bg-primary/90 text-white font-black tracking-widest uppercase px-10 py-7 text-base sm:px-12 sm:py-8 sm:text-lg rounded-none transform skew-x-[-12deg]"
           >
-            <Link className='transform skew-x-[12deg]' href={'https://unstop.com/hackathons/mind-installers-hackathon-40-iimt-college-of-engineering-iimt-coe-greater-noida-1645128'}>
+            <Link className='transform skew-x-[12deg]' href={''}>
               Register Now
             </Link>
           </Button>
@@ -70,8 +70,12 @@ export function Hero() {
             <a href="#about" className="transform skew-x-[12deg]">Learn More</a>
           </Button>
         </div>
+        
+        <p className='text-semibold  w-full pt-6 '>
+          <span className='border p-2 bg-black rounded-xl text-xs'>🚨 Registration is Over 🚨</span> 
+          </p>
       </div>
-
+      
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex-col items-center hidden md:flex">
         <span className="text-sm font-bold tracking-widest uppercase mb-2">Scroll</span>

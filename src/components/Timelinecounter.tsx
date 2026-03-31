@@ -9,7 +9,7 @@ const Counter = () => {
   const [sec, setSec] = useState<number>(0);
 
   useEffect(() => {
-    const countDownDate = new Date("April 3, 2026 15:37:25").getTime();
+    const countDownDate = new Date("March 30, 2026 23:59:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();

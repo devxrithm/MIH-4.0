@@ -12,7 +12,7 @@ const Community = () => {
                     <div className="w-full mx-10 z-10 grid grid-cols-3 md:grid-cols-6 justify-items-center items-center gap-8 mt-10">
                         <div className="">
                             <Image
-                                src={'/0xSpace_Without_BG.png'}
+                                src={'/0xSpace_Without_BG.PNG'}
                                 height={200}
                                 width={200}
                                 alt={"logo"}

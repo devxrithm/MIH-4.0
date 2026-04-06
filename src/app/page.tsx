@@ -16,7 +16,7 @@ import TechPartner from '@/components/TechPartner';
 import ChiefPatron from '@/components/ChiefPatron';
 import { EmberParticles } from '@/components/EmberParticles';
 import { QrCode } from '@/components/QrCode';
-import CommunityPartner from '@/components/CommunityPartner';
+import OrganizingCommunityPartner from '@/components/OrganizingCommunityPartner';
 import { Banner } from '@/components/Banner';
 import { Gallery } from '@/components/Gallery';
 import { Brocheur } from '@/components/Brocheur';
@@ -37,9 +37,12 @@ export default function Home() {
       <Prizes />
       <Organizers />
       <TechPartner/>
-      <CommunityPartner/>
       <Sponsor/>
+<<<<<<< HEAD
       <Community/>
+=======
+      <OrganizingCommunityPartner/>
+>>>>>>> c3c84ba (fix:changes)
       <div id="team">
         <TeamCarousel title="Organizing Team" members={TEAM_MEMBERS} />
       </div>

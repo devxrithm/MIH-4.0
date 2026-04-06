@@ -2,9 +2,6 @@
 import Image from 'next/image';
 import React from 'react';
 
-// Data for patrons and organizers
-
-
 const supportingOrgs2 = [
     { src: '/gdg.jpg', alt: 'gdg Logo' },
     { src: '/hwi.jpeg', alt: 'hwi Logo' },
@@ -20,7 +17,7 @@ const PatronCard = ({ name, role }: { name: string, role: string }) => (
     </div>
 );
 
-const ChiefPatron = () => {
+const OrganizingCommunityPartner = () => {
     return (
         <section id="leadership" className="px-6">
             <div className="max-w-7xl mx-auto">
@@ -48,4 +45,4 @@ const ChiefPatron = () => {
     );
 };
 
-export default ChiefPatron;
+export default OrganizingCommunityPartner;

@@ -38,12 +38,9 @@ export default function Home() {
       <Organizers />
       <TechPartner/>
       <Sponsor/>
-<<<<<<< HEAD
       <Community/>
-=======
       <OrganizingCommunityPartner/>
->>>>>>> c3c84ba (fix:changes)
-      <div id="team">
+ <div id="team">
         <TeamCarousel title="Organizing Team" members={TEAM_MEMBERS} />
       </div>
       <ChiefPatron/>
